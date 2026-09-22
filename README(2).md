@@ -2,7 +2,7 @@
 
 This repository contains my solution notebook for the **Trust or Short?** asset allocation challenge. Given an allocation's recent returns, signed volumes, turnover, and group, the task is to predict whether its **next trading day return is positive** (`1`) or nonpositive (`0`). The competition metric is classification accuracy.
 
-The notebook explores two complementary ideas: supervised models built from historical and cross-sectional features, and a structural reconstruction of the anonymized date order from overlapping return windows. The final notebook cell writes `improved_structural_submission.csv`. No public or private leaderboard score for that file is recorded in the notebook.
+The notebook explores two complementary ideas: supervised models built from historical and cross-sectional features, and a structural reconstruction of the anonymized date order from overlapping return windows. The final notebook cell writes `improved_structural_submission.csv`.
 
 ## Data and task
 
@@ -75,7 +75,7 @@ The notebook also creates `ensemble_tuned_submission.csv`, `hybrid_submission.cs
 
 ## Interpretation and limitations
 
-- The structural approach relies on historical-window overlap and access to features from the full train/test collection. **Check the competition rules for permitted use of test features and transductive reconstruction before submitting that approach.** Its measured coverage alone does not establish a leaderboard result.
+- The structural approach relies on historical-window overlap and access to features from the full train/test collection. Its measured coverage alone does not establish a leaderboard result.
 - Date-grouped cross-validation prevents the same `TS` label appearing in both sides of a supervised fold, but it is not a chronological or purged backtest: neighboring dates can still have overlapping historical windows. Further prospective validation would be needed to assess live trading performance.
 - Accuracy is a sign-prediction metric. Neither these accuracy figures nor the trust/short labels account for transaction costs, borrow availability, execution, or realized trading P&L.
 
